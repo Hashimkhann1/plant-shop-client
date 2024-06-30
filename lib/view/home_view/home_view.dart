@@ -82,6 +82,7 @@ class _HomeViewState extends State<HomeView> {
                             MyTextButton(
                               title: "About Us",
                               onTap: () {
+
                                 scrollToSection(aboutSectinokey);
                               },
                               textColor: AppColors.whiteColor,
