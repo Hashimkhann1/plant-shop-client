@@ -56,6 +56,7 @@ class _SliderSectionViewState extends State<SliderSectionView> {
       Positioned(
         bottom: 20,
         left: width * 0.5,
+
         child: AnimatedSmoothIndicator(
           activeIndex: activeIndex,
           count: imagesUrl.length,
