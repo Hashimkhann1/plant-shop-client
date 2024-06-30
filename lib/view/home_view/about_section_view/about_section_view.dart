@@ -46,6 +46,7 @@ class AboutSectionView extends StatelessWidget {
             height: Responsive.isMobile(context) ? 1.2 : 1.5,
           ),
         ],
+
       ),
     );
   }
