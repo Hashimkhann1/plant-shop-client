@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/utils/components/my_custome_appbar/my_custome_appbar.dart';
+import 'package:plant_cli/utils/components/my_drawer/my_drawer.dart';
 import 'package:plant_cli/utils/components/my_text.dart';
 import 'package:plant_cli/utils/components/my_text_button.dart';
 import 'package:plant_cli/utils/responsive/responsive.dart';
 import 'package:plant_cli/view/home_view/about_section_view/about_section_view.dart';
+import 'package:plant_cli/view/home_view/category_section_view/category_section_view.dart';
+import 'package:plant_cli/view/home_view/contact_section_view/contact_section_view.dart';
 import 'package:plant_cli/view/home_view/slider_section_view/slider_section_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,11 +18,45 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final homeSectinokey = GlobalKey();
   final aboutSectinokey = GlobalKey();
+  final categoriesSectinokey = GlobalKey();
+  final contactSectinokey = GlobalKey();
+
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  bool _showFAB = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    final scrollPosition = _scrollController.position.pixels;
+    if (scrollPosition > 400 && !_showFAB) {
+      setState(() {
+        _showFAB = true;
+      });
+    } else if (scrollPosition == 0 && _showFAB) {
+      setState(() {
+        _showFAB = false;
+      });
+    }
+  }
 
   void scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(key.currentContext!,
-        duration: Duration(seconds: 1), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
   }
 
   @override
@@ -28,12 +65,21 @@ class _HomeViewState extends State<HomeView> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
+      drawer: MyDrawer(
+        homeOnTap: () { scrollToSection(homeSectinokey);Navigator.pop(context);},
+        onTap: () { scrollToSection(contactSectinokey);Navigator.pop(context);},
+        aboutOnTap: () { scrollToSection(aboutSectinokey);Navigator.pop(context);},
+        categoriesOnTap: () { scrollToSection(categoriesSectinokey); Navigator.pop(context);},
+      ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             /// welcome section
             Container(
+              key: homeSectinokey,
               width: width,
               height:
                   Responsive.isTablet(context) || Responsive.isMobile(context)
@@ -51,7 +97,15 @@ class _HomeViewState extends State<HomeView> {
               child: Column(
                 children: [
                   /// Custome App bar
-                  MyCustomeAppbar(),
+                  MyCustomeAppbar(
+                    onTap: () => scrollToSection(contactSectinokey),
+                    aboutOnTap: () => scrollToSection(aboutSectinokey),
+                    categoriesOnTap: () =>
+                        scrollToSection(categoriesSectinokey),
+                    openDrawerOnPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                  ),
 
                   Expanded(
                     child: Container(
@@ -62,7 +116,7 @@ class _HomeViewState extends State<HomeView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            MyText(
+                            const MyText(
                               title:
                                   "WELCOME TO THE GREEN AND GREEN MD LLC NURSERY & LAWN CARE",
                               color: AppColors.whiteColor,
@@ -82,14 +136,15 @@ class _HomeViewState extends State<HomeView> {
                             MyTextButton(
                               title: "About Us",
                               onTap: () {
-
                                 scrollToSection(aboutSectinokey);
                               },
                               textColor: AppColors.whiteColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                               backgroundColor: AppColors.primaryColor,
-                              width: width * 0.12,
+                              width: Responsive.isMobile(context)
+                                  ? width * 0.28
+                                  : width * 0.12,
                               height: height * 0.05,
                               borderRadius: 6,
                             ),
@@ -115,14 +170,18 @@ class _HomeViewState extends State<HomeView> {
               height: height * 0.07,
             ),
 
-            /// plant images
-
             /// slider
             const SliderSectionView(),
-
             SizedBox(
               height: height * 0.07,
             ),
+
+            /// Categories Scction
+            Container(key: categoriesSectinokey, child: CategorySectionView()),
+
+            /// contact Section
+            Container(
+                key: contactSectinokey, child: const ContactSectionView()),
 
             /// fotter
             Container(
@@ -157,6 +216,17 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ),
+      floatingActionButton: _showFAB
+          ? FloatingActionButton(
+              backgroundColor: AppColors.primaryColor,
+              onPressed: () => scrollToSection(homeSectinokey),
+              child: Icon(
+                Icons.keyboard_arrow_up,
+                color: AppColors.whiteColor,
+                size: 30,
+              ),
+            )
+          : null,
     );
   }
 }
