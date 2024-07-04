@@ -1,17 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:plant_cli/utils/app_colors/app_colors.dart';
-import 'package:plant_cli/utils/components/my_custome_appbar/my_custome_appbar.dart';
-import 'package:plant_cli/utils/components/my_drawer/my_drawer.dart';
-import 'package:plant_cli/utils/components/my_text.dart';
-import 'package:plant_cli/utils/components/my_text_button.dart';
-import 'package:plant_cli/utils/responsive/responsive.dart';
-import 'package:plant_cli/view/home_view/about_section_view/about_section_view.dart';
-import 'package:plant_cli/view/home_view/category_section_view/category_section_view.dart';
-import 'package:plant_cli/view/home_view/contact_section_view/contact_section_view.dart';
-import 'package:plant_cli/view/home_view/slider_section_view/slider_section_view.dart';
+import 'package:plant_cli/utils/view.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -54,11 +44,6 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
-  void scrollToSection(GlobalKey key) {
-    Scrollable.ensureVisible(key.currentContext!,
-        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-  }
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -68,10 +53,10 @@ class _HomeViewState extends State<HomeView> {
       key: _scaffoldKey,
       backgroundColor: Colors.white,
       drawer: MyDrawer(
-        homeOnTap: () { scrollToSection(homeSectinokey);Navigator.pop(context);},
-        onTap: () { scrollToSection(contactSectinokey);Navigator.pop(context);},
-        aboutOnTap: () { scrollToSection(aboutSectinokey);Navigator.pop(context);},
-        categoriesOnTap: () { scrollToSection(categoriesSectinokey); Navigator.pop(context);},
+        homeOnTap: () { ScrollViewModel.scrollToSection(homeSectinokey);Navigator.pop(context);},
+        onTap: () { ScrollViewModel.scrollToSection(contactSectinokey);Navigator.pop(context);},
+        aboutOnTap: () { ScrollViewModel.scrollToSection(aboutSectinokey);Navigator.pop(context);},
+        categoriesOnTap: () { ScrollViewModel.scrollToSection(categoriesSectinokey); Navigator.pop(context);},
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -83,7 +68,7 @@ class _HomeViewState extends State<HomeView> {
               width: width,
               height:
                   Responsive.isTablet(context) || Responsive.isMobile(context)
-                      ? height * 0.68
+                      ? height * 0.78
                       : height * 0.99,
               decoration: BoxDecoration(
                 color: Colors.black,
@@ -98,61 +83,18 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   /// Custome App bar
                   MyCustomeAppbar(
-                    onTap: () => scrollToSection(contactSectinokey),
-                    aboutOnTap: () => scrollToSection(aboutSectinokey),
+                    onTap: () => ScrollViewModel.scrollToSection(contactSectinokey),
+                    aboutOnTap: () => ScrollViewModel.scrollToSection(aboutSectinokey),
                     categoriesOnTap: () =>
-                        scrollToSection(categoriesSectinokey),
+                        ScrollViewModel.scrollToSection(categoriesSectinokey),
                     openDrawerOnPressed: () {
                       _scaffoldKey.currentState?.openDrawer();
                     },
                   ),
 
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const MyText(
-                              title:
-                                  "WELCOME TO THE GREEN AND GREEN MD LLC NURSERY & LAWN CARE",
-                              color: AppColors.whiteColor,
-                              fontSize: 16,
-                              textAlign: TextAlign.center,
-                            ),
-                            MyText(
-                              title: "Let’s Bring the Spring to Your Home",
-                              color: AppColors.whiteColor,
-                              fontSize: Responsive.isMobile(context) ? 36 : 50,
-                              fontWeight: FontWeight.w500,
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(
-                              height: height * 0.01,
-                            ),
-                            MyTextButton(
-                              title: "About Us",
-                              onTap: () {
-                                scrollToSection(aboutSectinokey);
-                              },
-                              textColor: AppColors.whiteColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                              backgroundColor: AppColors.primaryColor,
-                              width: Responsive.isMobile(context)
-                                  ? width * 0.28
-                                  : width * 0.12,
-                              height: height * 0.05,
-                              borderRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  /// home section view
+                  HomeSectionView(onTap: () => ScrollViewModel.scrollToSection(aboutSectinokey),)
+
                 ],
               ),
             ),
@@ -178,6 +120,9 @@ class _HomeViewState extends State<HomeView> {
 
             /// Categories Scction
             Container(key: categoriesSectinokey, child: CategorySectionView()),
+            SizedBox(
+              height: height * 0.04,
+            ),
 
             /// contact Section
             Container(
@@ -219,8 +164,8 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: _showFAB
           ? FloatingActionButton(
               backgroundColor: AppColors.primaryColor,
-              onPressed: () => scrollToSection(homeSectinokey),
-              child: Icon(
+              onPressed: () => ScrollViewModel.scrollToSection(homeSectinokey),
+              child: const Icon(
                 Icons.keyboard_arrow_up,
                 color: AppColors.whiteColor,
                 size: 30,

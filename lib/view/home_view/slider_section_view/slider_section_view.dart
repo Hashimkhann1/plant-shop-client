@@ -1,6 +1,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:plant_cli/utils/responsive/responsive.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SliderSectionView extends StatefulWidget {
@@ -31,7 +32,7 @@ class _SliderSectionViewState extends State<SliderSectionView> {
           itemBuilder: (context, index, relIndex) {
             return Container(
               width: width,
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(6)),
@@ -42,7 +43,7 @@ class _SliderSectionViewState extends State<SliderSectionView> {
             );
           },
           options: CarouselOptions(
-              height: height * 0.44,
+              height: Responsive.isMobile(context) ? height * 0.24 : height * 0.44,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 4),
               viewportFraction: 0.8,

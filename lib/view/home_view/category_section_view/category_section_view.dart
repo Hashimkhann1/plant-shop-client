@@ -8,20 +8,24 @@ class CategorySectionView extends StatelessWidget {
 
   List categoryPlants  = [
     {
-      "image": "https://www.meccacandleco.com/cdn/shop/articles/indoorplants.jpg?v=1562521927",
-      "name" : "Indoor Plants"
+      "image": "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/pink-lady-apple_d2694a66-537e-4883-a0b9-ffce7a23e783_1.jpg?v=1707327538",
+      "name" : "Fruite Trees",
+      "category" : "Fruite",
     },
     {
-      "image": "https://www.bloomingbackyard.com/wp-content/uploads/2021/06/Azalea-1024x680.jpg.webp",
-      "name" : "Shrubs Plants"
+      "image": "https://hips.hearstapps.com/hmg-prod/images/ornamental-garden-royalty-free-image-1705084130.jpg",
+      "name" : "Shrubs",
+      "category" : "Shrubs Plants"
     },
     {
-      "image": "https://image.made-in-china.com/202f0j00cEPkODmIHogQ/Nearly-Natural-Artificial-Plants-Lily-Bamboo-Indoor.jpg",
-      "name" : "Privacy Plants"
+      "image": "https://m.media-amazon.com/images/I/61z3ZMyVSdL._AC_UF894,1000_QL80_.jpg",
+      "name" : "Thugha Gaint",
+      'category': "Privacy Tress"
     },
     {
-      "image": "https://rukminim2.flixcart.com/image/750/900/xif0q/plant-sapling/z/q/y/no-perennial-yes-real-live-dark-red-rose-live-plant-hybrid-for-original-imagsquguuqkdgjw.jpeg?q=20&crop=false",
-      "name" : "Roses"
+      "image": "https://www.plantingtree.com/cdn/shop/products/3686.jpg",
+      "name" : "Emerland Tress",
+      'category': "Privacy Tress"
     },
   ];
 
@@ -40,7 +44,7 @@ class CategorySectionView extends StatelessWidget {
 
         Container(
           width: Responsive.isDesktop(context) ?  width * 0.54 : width * 0.9,
-          height: Responsive.isTablet(context) ? height * 0.7 : height,
+          // height: Responsive.isTablet(context) ? height * 0.7 : height,
 
           child: GridView.builder(
             itemCount: categoryPlants.length,
@@ -80,7 +84,7 @@ class CategorySectionView extends StatelessWidget {
                       alignment: Alignment.bottomLeft,
                       child: Container(
                         width: width,
-                        height: height * 0.08,
+                        height: height < 500 ? height * 0.12 :  height * 0.09,
                         padding: EdgeInsets.symmetric(horizontal: width * 0.01, vertical: height * 0.02),
                         decoration: BoxDecoration(
                           color: AppColors.primaryColor.withOpacity(0.5),
@@ -93,7 +97,8 @@ class CategorySectionView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 17 : 20,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                            MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 16 : 17,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                            MyText(title: categoryPlants[index]['category'],fontSize: Responsive.isMobile(context) ? 12 : 14,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
                           ],
                         ),
                       ),
