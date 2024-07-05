@@ -43,7 +43,7 @@ class _SliderSectionViewState extends State<SliderSectionView> {
             );
           },
           options: CarouselOptions(
-              height: Responsive.isMobile(context) ? height * 0.24 : height * 0.44,
+              height: Responsive.isMobile(context) ? height * 0.25 : height * 0.40,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 4),
               viewportFraction: 0.8,
