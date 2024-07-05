@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/utils/components/my_text.dart';
 import 'package:plant_cli/utils/responsive/responsive.dart';
 
@@ -25,6 +26,7 @@ class AboutSectionView extends StatelessWidget {
             title: "About Us",
             fontSize: 38,
             fontWeight: FontWeight.w900,
+            color: AppColors.primaryColor,
           ),
           SizedBox(height: height * 0.02,),
           MyText(
@@ -41,7 +43,7 @@ class AboutSectionView extends StatelessWidget {
                 "ipsum is a placeholder text commonly used to demonstrate the visual form of "
                 "a document or a typeface without relying on meaningful content. Lorem ipsum "
                 "may be used as a placeholder before the final copy is available",
-            fontSize: 19,
+            fontSize: Responsive.isMobile(context) ? 16 : 19,
             letterSpacing: Responsive.isMobile(context) ? 0.8 : 1,
             height: Responsive.isMobile(context) ? 1.2 : 1.5,
           ),
