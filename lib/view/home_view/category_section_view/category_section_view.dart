@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/utils/components/my_text.dart';
+import 'package:plant_cli/utils/components/my_text_button.dart';
 import 'package:plant_cli/utils/responsive/responsive.dart';
 
 class CategorySectionView extends StatelessWidget {
@@ -93,12 +94,21 @@ class CategorySectionView extends StatelessWidget {
                               bottomRight: Radius.circular(6),
                             ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 16 : 17,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
-                            MyText(title: categoryPlants[index]['category'],fontSize: Responsive.isMobile(context) ? 12 : 14,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                            /// name
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 16 : 17,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                                MyText(title: categoryPlants[index]['category'],fontSize: Responsive.isMobile(context) ? 12 : 14,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                              ],
+                            ),
+
+                            /// see more button
+                            MyTextButton(title: "See more >",textColor: AppColors.whiteColor,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),
