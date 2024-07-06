@@ -84364,10 +84364,10 @@ else{q=p*0.02
 q=A.oU(A.b([B.I_,A.bV(r,r,q),A.lK(B.J,r,0,19,B.ah,r,!1,r,s.d,r,B.i,"About",r),A.bV(r,r,q),A.lK(B.J,r,0,19,B.ah,r,!1,r,s.e,r,B.i,"Categories",r),A.bV(r,r,q),A.lK(B.J,r,0,19,B.ah,r,!1,r,s.c,r,B.i,"Contact Us",r),A.bV(r,r,q)],i),B.aC,B.al)}return A.cV(r,A.oU(A.b([j,q],i),m,B.al),B.u,B.z,r,r,r,o*0.1,r,r,new A.ax(n,0,n,0),r,r,p)}}
 A.Jy.prototype={
 M(a){var s,r,q=this,p=null,o=t.w,n=A.am(a,p,o).w.a.a,m=A.am(a,p,o).w.a.b
-o=n*0.4
+o=n*0.7
 s=n*0.02
 r=m*0.01
-return new A.HK(A.cV(p,A.fW(A.b([A.bV(p,m*0.03,p),A.jy(new A.da(B.mk,A.Yf(B.z,A.Yr(A.ID("images/whtitbgLogo-removebg-preview.png",B.cu,m,n)),m*0.17),p),p,p),A.bV(p,m*0.02,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.c,new A.ax(6,0,0,0),B.aL,"Home",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.e,new A.ax(6,0,0,0),B.aL,"About",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.f,new A.ax(6,0,0,0),B.aL,"Categories",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.d,new A.ax(6,0,0,0),B.aL,"Contact Us",o),A.bV(p,r,p)],t.D),B.c8,B.aC,B.al),B.u,B.i,p,p,p,p,p,p,p,p,p,p),p)}}
+return new A.HK(A.cV(p,A.fW(A.b([A.bV(p,m*0.03,p),A.jy(new A.da(B.mk,A.Yf(B.z,A.Yr(A.ID("images/logo_with_white_bg.png",B.cu,m,n)),m*0.17),p),p,p),A.bV(p,m*0.02,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.c,new A.ax(6,5,0,5),B.aL,"Home",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.e,new A.ax(6,5,0,5),B.aL,"About",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.f,new A.ax(6,5,0,5),B.aL,"Categories",o),A.bV(p,r,p),A.lK(B.bL,A.V(51,158,158,158),6,22,B.ah,p,!1,new A.ax(s,0,0,0),q.d,new A.ax(6,5,0,5),B.aL,"Contact Us",o),A.bV(p,r,p)],t.D),B.c8,B.aC,B.al),B.u,B.i,p,p,p,p,p,p,p,p,p,p),p)}}
 A.lJ.prototype={
 M(a){var s=this,r=null
 return A.ml(s.c,r,r,r,A.j4(r,r,s.d,r,r,r,r,r,r,r,r,s.e,r,r,s.f,r,s.Q,!0,r,s.z,r,r,r,r,r,r),s.r,r)}}
@@ -84439,7 +84439,7 @@ r.LS()
 if(r.n2())new A.YV().vj(this.b,s.d.a.a,s.e.a.a,s.f.a.a)},
 $S:0}
 A.If.prototype={
-M(a){var s,r,q,p,o=null,n="images/whtitbgLogo-removebg-preview.png",m=t.w,l=A.am(a,o,m).w.a.a,k=A.am(a,o,m).w.a.b
+M(a){var s,r,q,p,o=null,n="images/logo_with_white_bg.png",m=t.w,l=A.am(a,o,m).w.a.a,k=A.am(a,o,m).w.a.b
 if(A.am(a,o,m).w.a.a<750)s=k*0.4
 else s=l<370?k*0.9:k*0.2
 r=l*0.05
@@ -84448,7 +84448,7 @@ p=k*0.14
 if(A.am(a,o,m).w.a.a<750){m=t.D
 m=A.fW(A.b([A.fW(A.b([new A.da(B.ml,A.jy(A.Yf(B.z,A.Yr(A.ID(n,B.cu,o,o)),p),o,o),o),A.oU(A.b([B.I2,A.a2V(B.DA,new A.a1q(),o)],m),B.t3,B.al)],m),B.c9,B.t4,B.al)],m),B.c8,B.aC,B.al)}else{m=A.Yf(B.z,A.Yr(A.ID(n,B.cu,o,o)),p)
 p=t.D
-p=A.oU(A.b([A.oU(A.b([new A.da(B.ml,m,o),A.ro(B.aL,A.zv(a)?24:36,B.ah,o,o,o,u.m)],p),B.aC,B.al),A.oU(A.b([A.a2V(B.DB,new A.a1r(),o)],p),B.aC,B.al)],p),B.fY,B.al)
+p=A.oU(A.b([A.oU(A.b([new A.da(B.ml,m,o),A.ro(B.aL,A.zv(a)?24:26,B.ah,o,o,o,u.m)],p),B.aC,B.al),A.oU(A.b([A.a2V(B.DB,new A.a1r(),o)],p),B.aC,B.al)],p),B.fY,B.al)
 m=p}return A.cV(o,m,B.u,o,o,new A.d4(q,o,o,o,o,o,B.aE),o,s,o,o,new A.ax(r,0,r,0),o,o,l)}}
 A.a1q.prototype={
 $0(){},
