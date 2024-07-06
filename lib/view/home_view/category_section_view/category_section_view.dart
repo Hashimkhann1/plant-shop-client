@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/utils/components/my_text.dart';
-import 'package:plant_cli/utils/components/my_text_button.dart';
 import 'package:plant_cli/utils/responsive/responsive.dart';
 
 class CategorySectionView extends StatelessWidget {
@@ -40,7 +39,7 @@ class CategorySectionView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        MyText(title: "Categories",fontSize: 30,fontWeight: FontWeight.bold,color: AppColors.primaryColor,),
+        const MyText(title: "Categories",fontSize: 30,fontWeight: FontWeight.bold,color: AppColors.primaryColor,),
         SizedBox(height: height * 0.03,),
 
         Container(
@@ -50,7 +49,7 @@ class CategorySectionView extends StatelessWidget {
           child: GridView.builder(
             itemCount: categoryPlants.length,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: Responsive.isMobile(context) ? 1 : 2,
               childAspectRatio: Responsive.isTablet(context) ? 2/1.9 : Responsive.isMobile(context) ?  1/ 0.55 :  1/0.9,
@@ -89,7 +88,7 @@ class CategorySectionView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: width * 0.01, vertical: height * 0.02),
                         decoration: BoxDecoration(
                           color: AppColors.primaryColor.withOpacity(0.5),
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(6),
                               bottomRight: Radius.circular(6),
                             ),
@@ -108,7 +107,7 @@ class CategorySectionView extends StatelessWidget {
                             ),
 
                             /// see more button
-                            MyTextButton(title: "See more >",textColor: AppColors.whiteColor,fontWeight: FontWeight.w500,)
+                            // MyTextButton(title: "See more >",textColor: AppColors.whiteColor,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),

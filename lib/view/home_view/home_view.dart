@@ -126,21 +126,38 @@ class _HomeViewState extends State<HomeView> {
 
             /// contact Section
             Container(
-                key: contactSectinokey, child: const ContactSectionView()),
+                key: contactSectinokey, child: ContactSectionView()),
 
             /// fotter
             Container(
               width: width,
-              height: height * 0.12,
+              height: height * 0.16,
               padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.04)),
+              decoration: BoxDecoration(color: Colors.black.withOpacity(0.03)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const MyText(
-                    title: "Green and green md llc\nNursery & lawn care",
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 6.0),
+                        child: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            radius: height * 0.08,
+                            child: ClipOval(
+                              child: Image.asset(
+                                'images/greenAndGreenLogo.png',
+                                fit: BoxFit.cover,
+                              ),)
+                        ),
+                      ),
+                      const MyText(
+                        title: "Green and green md llc\nNursery & lawn care",
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primaryColor,
+                      ),
+                    ],
                   ),
 
                   /// Social buttons
@@ -162,15 +179,18 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       floatingActionButton: _showFAB
-          ? FloatingActionButton(
-              backgroundColor: AppColors.primaryColor,
-              onPressed: () => ScrollViewModel.scrollToSection(homeSectinokey),
-              child: const Icon(
-                Icons.keyboard_arrow_up,
-                color: AppColors.whiteColor,
-                size: 30,
+          ? Padding(
+            padding: EdgeInsets.only(bottom: Responsive.isMobile(context) ? height * 0.08 : 0),
+            child: FloatingActionButton(
+                backgroundColor: AppColors.primaryColor,
+                onPressed: () => ScrollViewModel.scrollToSection(homeSectinokey),
+                child: const Icon(
+                  Icons.keyboard_arrow_up,
+                  color: AppColors.whiteColor,
+                  size: 30,
+                ),
               ),
-            )
+          )
           : null,
     );
   }

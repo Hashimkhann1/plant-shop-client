@@ -15,9 +15,10 @@ class _SliderSectionViewState extends State<SliderSectionView> {
   int activeIndex = 0;
 
   final List<String> imagesUrl = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7kGGM0HDvdFAwTqZGMimBMkLG2WcP8GTZw&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7kGGM0HDvdFAwTqZGMimBMkLG2WcP8GTZw&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7kGGM0HDvdFAwTqZGMimBMkLG2WcP8GTZw&s'
+    '3',
+    '1',
+    '4',
+    '2',
   ];
 
   @override
@@ -30,20 +31,21 @@ class _SliderSectionViewState extends State<SliderSectionView> {
       CarouselSlider.builder(
           itemCount: imagesUrl.length,
           itemBuilder: (context, index, relIndex) {
+            // print(imagesUrl.length);
             return Container(
               width: width,
               margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(6)),
-              child: Image.network(
-                imagesUrl[index],
+              child: Image.asset(
+                'images/slider/${imagesUrl[index]}.png',
                 fit: BoxFit.cover,
               ),
             );
           },
           options: CarouselOptions(
-              height: Responsive.isMobile(context) ? height * 0.25 : height * 0.40,
+              height: Responsive.isMobile(context) ? height * 0.23 : height * 0.40,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 4),
               viewportFraction: 0.8,

@@ -13,6 +13,7 @@ class MyTextButton extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final AlignmentGeometry? alignment;
   final void Function()? onTap;
   final bool isLoading;
@@ -27,6 +28,7 @@ class MyTextButton extends StatelessWidget {
       this.height,
       this.width,
       this.padding,
+      this.margin,
       this.alignment = Alignment.center,
       this.onTap,
       this.isLoading = false});
@@ -39,6 +41,7 @@ class MyTextButton extends StatelessWidget {
         width: width,
         height: height,
         padding: padding,
+        margin: margin,
         alignment: alignment,
         decoration: BoxDecoration(
             color: backgroundColor,

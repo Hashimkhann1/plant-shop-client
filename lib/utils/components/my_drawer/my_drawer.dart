@@ -25,19 +25,39 @@ class MyDrawer extends StatelessWidget {
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            SizedBox(height: height * 0.12,),
+            SizedBox(height: height * 0.07,),
 
-            MyText(title: "App Logo",fontSize: 27,fontWeight: FontWeight.bold,color: AppColors.primaryColor,),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 6.0),
+                child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: height * 0.11,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'images/greenAndGreenLogo.png',
+                        fit: BoxFit.cover,
+                      ),)
+                ),
+              ),
+            ),
             SizedBox(height: height * 0.04,),
 
            MyTextButton(
+             width: width * 0.22,
+             alignment: Alignment.topLeft,
+             padding: EdgeInsets.only(left: 6),
+             margin: EdgeInsets.only(left: width * 0.02),
+             borderRadius: 6,
              title: "Home",
              fontSize: 22,
              fontWeight: FontWeight.bold,
              textColor: AppColors.primaryColor,
              onTap: homeOnTap,
+             backgroundColor: Colors.grey.withOpacity(0.2),
            ),
            SizedBox(
              height: height * 0.01,
@@ -47,31 +67,50 @@ class MyDrawer extends StatelessWidget {
            // SizedBox(width: width * 0.02,),
            // Contact Us button
            MyTextButton(
+             width: width * 0.22,
+             alignment: Alignment.topLeft,
+             padding: EdgeInsets.only(left: 6),
+             margin: EdgeInsets.only(left: width * 0.02),
+             borderRadius: 6,
              title: "About",
              fontSize: 22,
              fontWeight: FontWeight.bold,
              textColor: AppColors.primaryColor,
              onTap: aboutOnTap,
+             backgroundColor: Colors.grey.withOpacity(0.2),
            ),
            SizedBox(
+
              height: height * 0.01,
            ),
            MyTextButton(
+               width: width * 0.24,
+               alignment: Alignment.topLeft,
+             padding: EdgeInsets.only(left: 6),
+             margin: EdgeInsets.only(left: width * 0.02),
+                borderRadius: 6,
                title: "Categories",
                fontSize: 22,
                fontWeight: FontWeight.bold,
                textColor:AppColors.primaryColor,
-               onTap: categoriesOnTap
+               onTap: categoriesOnTap,
+             backgroundColor: Colors.grey.withOpacity(0.2),
            ),
            SizedBox(
              height: height * 0.01,
            ),
            MyTextButton(
+               width: width * 0.26,
+                alignment: Alignment.topLeft,
+             padding: EdgeInsets.only(left: 6),
+             margin: EdgeInsets.only(left: width * 0.02),
+                borderRadius: 6,
                title: "Contact Us",
                fontSize: 22,
                fontWeight: FontWeight.bold,
                textColor: AppColors.primaryColor,
-               onTap: onTap
+               onTap: onTap,
+             backgroundColor: Colors.grey.withOpacity(0.2),
            ),
            SizedBox(
              height: height * 0.01,
