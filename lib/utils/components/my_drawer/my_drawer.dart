@@ -1,5 +1,7 @@
 
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/utils/components/my_text_button.dart';
@@ -28,28 +30,30 @@ class MyDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            SizedBox(height: height * 0.07,),
+            SizedBox(height: height * 0.03,),
 
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 6.0),
                 child: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    radius: height * 0.11,
+                    radius: height * 0.17,
                     child: ClipOval(
                       child: Image.asset(
-                        'images/greenAndGreenLogo.png',
+                        'images/logo_with_white_bg.png',
                         fit: BoxFit.cover,
+                        width: width,
+                        height: height,
                       ),)
                 ),
               ),
             ),
-            SizedBox(height: height * 0.04,),
+            SizedBox(height: height * 0.02,),
 
            MyTextButton(
-             width: width * 0.22,
+             width: width * 0.7,
              alignment: Alignment.topLeft,
-             padding: EdgeInsets.only(left: 6),
+             padding: EdgeInsets.only(left: 6,top: 5,bottom: 5),
              margin: EdgeInsets.only(left: width * 0.02),
              borderRadius: 6,
              title: "Home",
@@ -67,9 +71,9 @@ class MyDrawer extends StatelessWidget {
            // SizedBox(width: width * 0.02,),
            // Contact Us button
            MyTextButton(
-             width: width * 0.22,
+             width: width * 0.7,
              alignment: Alignment.topLeft,
-             padding: EdgeInsets.only(left: 6),
+             padding: EdgeInsets.only(left: 6,top: 5,bottom: 5),
              margin: EdgeInsets.only(left: width * 0.02),
              borderRadius: 6,
              title: "About",
@@ -84,9 +88,9 @@ class MyDrawer extends StatelessWidget {
              height: height * 0.01,
            ),
            MyTextButton(
-               width: width * 0.24,
+               width: width * 0.7,
                alignment: Alignment.topLeft,
-             padding: EdgeInsets.only(left: 6),
+             padding: EdgeInsets.only(left: 6,top: 5,bottom: 5),
              margin: EdgeInsets.only(left: width * 0.02),
                 borderRadius: 6,
                title: "Categories",
@@ -100,9 +104,9 @@ class MyDrawer extends StatelessWidget {
              height: height * 0.01,
            ),
            MyTextButton(
-               width: width * 0.26,
+               width: width * 0.7,
                 alignment: Alignment.topLeft,
-             padding: EdgeInsets.only(left: 6),
+             padding: EdgeInsets.only(left: 6,top: 5,bottom: 5),
              margin: EdgeInsets.only(left: width * 0.02),
                 borderRadius: 6,
                title: "Contact Us",
