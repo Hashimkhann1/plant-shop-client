@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => LoadingBloc()),
         ],
         child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Green & Green Md LLC',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

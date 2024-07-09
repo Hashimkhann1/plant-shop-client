@@ -1,4 +1,5 @@
 import 'package:plant_cli/utils/view.dart';
+import 'package:plant_cli/view/home_view/fotter_section_view/fotter_section_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -129,52 +130,7 @@ class _HomeViewState extends State<HomeView> {
                 key: contactSectinokey, child: ContactSectionView()),
 
             /// fotter
-            Container(
-              width: width,
-              height: height * 0.16,
-              padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.03)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6.0),
-                        child: CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            radius: height * 0.08,
-                            child: ClipOval(
-                              child: Image.asset(
-                                'images/greenAndGreenLogo.png',
-                                fit: BoxFit.cover,
-                              ),)
-                        ),
-                      ),
-                      const MyText(
-                        title: "Green and green md llc\nNursery & lawn care",
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryColor,
-                      ),
-                    ],
-                  ),
-
-                  /// Social buttons
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.facebook,
-                            color: Colors.blueAccent,
-                            size: 34,
-                          )),
-                    ],
-                  )
-                ],
-              ),
-            )
+            FotterSectionView()
           ],
         ),
       ),
