@@ -9,8 +9,8 @@ class CategorySectionView extends StatelessWidget {
   List categoryPlants  = [
     {
       "image": "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/pink-lady-apple_d2694a66-537e-4883-a0b9-ffce7a23e783_1.jpg?v=1707327538",
-      "name" : "Fruite Trees",
-      "category" : "Fruite",
+      "name" : "Fruite Plants",
+      "category" : "Fruite Plants",
     },
     {
       "image": "https://hips.hearstapps.com/hmg-prod/images/ornamental-garden-royalty-free-image-1705084130.jpg",
@@ -19,12 +19,12 @@ class CategorySectionView extends StatelessWidget {
     },
     {
       "image": "https://m.media-amazon.com/images/I/61z3ZMyVSdL._AC_UF894,1000_QL80_.jpg",
-      "name" : "Thugha Gaint",
+      "name" : "Emerald green",
       'category': "Privacy Tress"
     },
     {
       "image": "https://www.plantingtree.com/cdn/shop/products/3686.jpg",
-      "name" : "Emerland Tress",
+      "name" : "Thujha green giant",
       'category': "Privacy Tress"
     },
   ];
@@ -79,13 +79,13 @@ class CategorySectionView extends StatelessWidget {
                 /// text contaiener
                 child: Stack(
                   children: [
-                    /// Text container with specific height and color
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Container(
+                        alignment: Alignment.centerLeft,
                         width: width,
-                        height: height < 500 ? height * 0.12 :  height * 0.09,
-                        padding: EdgeInsets.symmetric(horizontal: width * 0.01, vertical: height * 0.02),
+                        height:  Responsive.isMobile(context) ? height * 0.08 : height < 500 ? height * 0.13 : height * 0.07,
+                        padding: EdgeInsets.symmetric(horizontal: width * 0.01, vertical: 4),
                         decoration: BoxDecoration(
                           color: AppColors.primaryColor.withOpacity(0.5),
                             borderRadius: const BorderRadius.only(
@@ -93,21 +93,11 @@ class CategorySectionView extends StatelessWidget {
                               bottomRight: Radius.circular(6),
                             ),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            /// name
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 16 : 17,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
-                                MyText(title: categoryPlants[index]['category'],fontSize: Responsive.isMobile(context) ? 12 : 14,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
-                              ],
-                            ),
-
-                            /// see more button
-                            // MyTextButton(title: "See more >",textColor: AppColors.whiteColor,fontWeight: FontWeight.w500,)
+                            MyText(title: categoryPlants[index]['name'],fontSize: Responsive.isMobile(context) ? 16 : 19,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
+                            MyText(title: categoryPlants[index]['category'],fontSize: Responsive.isMobile(context) ? 11 : 14,fontWeight: FontWeight.bold,color: AppColors.whiteColor,),
                           ],
                         ),
                       ),
