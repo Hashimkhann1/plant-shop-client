@@ -1,9 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:emailjs/emailjs.dart' as emailjs;
+import 'package:plant_cli/utils/app_colors/app_colors.dart';
 import 'package:plant_cli/view_model/bloc/loading_bloc/loading_bloc/loading_bloc.dart';
 import 'package:plant_cli/view_model/bloc/loading_bloc/loading_bloc_event/loading_bloc_event.dart';
 
@@ -15,36 +18,15 @@ class ContactUsViewModel {
   Future sendEmail(BuildContext context, String name , email , message) async {
     context.read<LoadingBloc>().add(SetLoading());
     try{
-      // final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-      // final responce = await http.post(
-      //   url,
-      //   headers: {
-      //     'contentType': 'application/json'
-      //   },
-      //   body: json.encode({
-      //     'service_id': ''service_141pr1q'',
-      //     'template_id': 'template_5c8roto',
-      //     'user_id': 'iAqhK2kiqidm2gNn2',
-      //     'template_params': {
-      //       'from_name': name,
-      //       'message': message,
-      //       'user_email': email,
-      //     }
-      //   })
-      // ).then((value) {
-
-      // });
-      // print(responce);
-
       Map<String, dynamic> templateParams = {
         'from_name': name,
         'message': message,
-        'user_email': email
+        'reply_to': email
       };
 
       await emailjs.send(
           'service_141pr1q',
-          'template_5c8roto',
+          'template_e17n209',
           templateParams,
           const emailjs.Options(
           publicKey: 'iAqhK2kiqidm2gNn2',
@@ -52,12 +34,26 @@ class ContactUsViewModel {
         ),
       ).then((value){
         context.read<LoadingBloc>().add(SetLoading());
+        toastMessage(context, "Mail sended Successfully");
       });
 
     }catch(error){
       context.read<LoadingBloc>().add(SetLoading());
+      toastMessage(context, "Mail not sended try again later");
       print("Error while sending email for conact from >>> ContactUsViewModel $error");
     }
+  }
+
+  void toastMessage(BuildContext context , String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 3,
+        backgroundColor: AppColors.primaryColor,
+        textColor: Colors.white,
+        fontSize: 16.0,
+    );
   }
 
 }
