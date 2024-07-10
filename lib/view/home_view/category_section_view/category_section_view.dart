@@ -60,7 +60,7 @@ class CategorySectionView extends StatelessWidget {
             itemBuilder: (context , index) {
               return Container(
                 decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: Colors.grey.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(6),
                     boxShadow: [
                       BoxShadow(
