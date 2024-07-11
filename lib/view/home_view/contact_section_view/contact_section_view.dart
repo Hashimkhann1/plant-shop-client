@@ -146,13 +146,13 @@ class ContactSectionView extends StatelessWidget {
 
   static final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController messageController = TextEditingController();
+  static final TextEditingController nameController = TextEditingController();
+  static final TextEditingController emailController = TextEditingController();
+  static final TextEditingController messageController = TextEditingController();
 
-  final FocusNode nameFocusNode = FocusNode();
-  final FocusNode emailFocusNode = FocusNode();
-  final FocusNode messageFocusNode = FocusNode();
+  static final FocusNode nameFocusNode = FocusNode();
+  static final FocusNode emailFocusNode = FocusNode();
+  static final FocusNode messageFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
