@@ -64,8 +64,8 @@ class AboutSectionView extends StatelessWidget {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
                         final Uri telUri = Uri(scheme: 'tel', path: '+14439004317');
-                        if (await canLaunch(telUri.toString())) {
-                          await launch(telUri.toString());
+                        if (await canLaunchUrl(telUri)) {
+                          await launchUrl(telUri);
                         } else {
                           throw 'Could not launch $telUri';
                         }
@@ -86,8 +86,8 @@ class AboutSectionView extends StatelessWidget {
                           scheme: 'mailto',
                           path: 'greenandgreenmdllc@gmail.com',
                         );
-                        if (await canLaunch(emailUri.toString())) {
-                          await launch(emailUri.toString());
+                        if (await canLaunchUrl(emailUri)) {
+                          await launchUrl(emailUri);
                         } else {
                           throw 'Could not launch $emailUri';
                         }
@@ -117,8 +117,8 @@ class AboutSectionView extends StatelessWidget {
                           path:
                           'www.google.com/maps/place/5028+E+Oliver+St,+Baltimore,+MD+21205,+USA/@39.3090138,-76.5589097,17.06z/data=!4m6!3m5!1s0x89c804245a8279c5:0x3d139f8870c035c5!8m2!3d39.30903!4d-76.556222!16s%2Fg%2F11dznv5fn0?entry=ttu',
                         );
-                        if (await canLaunch(mapUri.toString())) {
-                          await launch(mapUri.toString());
+                        if (await canLaunchUrl(mapUri)) {
+                          await launchUrl(mapUri);
                         } else {
                           throw 'Could not launch $mapUri';
                         }

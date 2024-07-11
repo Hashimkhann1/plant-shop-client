@@ -13,6 +13,7 @@ class MyTextFormFeild extends StatelessWidget {
   final BorderSide borderSide;
   final Color? focusedBorderColor;
   final double borderRadius;
+  final FocusNode? focusNode;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -30,6 +31,7 @@ class MyTextFormFeild extends StatelessWidget {
         this.focusedBorderColor = AppColors.primaryColor,
       this.controller,
       this.borderRadius = 10,
+        this.focusNode,
       this.validator});
 
   @override
@@ -38,6 +40,7 @@ class MyTextFormFeild extends StatelessWidget {
       obscureText: obscureText,
       controller: controller,
       maxLines: maxLines,
+      focusNode: focusNode,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
